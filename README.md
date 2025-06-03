@@ -1,12 +1,326 @@
-- 👋 Hi, I’m @hamdanfragnance
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hamdan Fragrances</title>
+  <style>
+    /* Reset & basics */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfcfb;
+      color: #222;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+    a {
+      color: #f39c12;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #d35400;
+    }
 
-<!---
-hamdanfragnance/hamdanfragnance is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: #222;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      color: #f39c12;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+    }
+    nav a {
+      margin-left: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #eee;
+    }
+
+    /* Hero Section */
+    #home {
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+        url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1470&q=80') no-repeat center/cover;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fdfcfb;
+      padding: 0 1rem;
+    }
+    #home h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+    }
+    #home p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 2rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    #home a.btn {
+      background-color: #f39c12;
+      color: #222;
+      padding: 0.85rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 6px 12px rgba(243,156,18,0.6);
+      transition: background-color 0.3s ease;
+    }
+    #home a.btn:hover {
+      background-color: #d35400;
+      color: #fff;
+      box-shadow: 0 8px 15px rgba(211,84,0,0.7);
+    }
+
+    /* Products Section */
+    #shop {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    #shop h2 {
+      text-align: center;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      color: #222;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+    .product-card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 3px solid #f39c12;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+    .product-info {
+      padding: 1.5rem 1.25rem;
+      text-align: center;
+    }
+    .product-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: #f39c12;
+      font-weight: 700;
+    }
+    .product-info p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    /* Contact Section */
+    #contact {
+      background-color: #222;
+      color: #eee;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    #contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      color: #f39c12;
+    }
+    form {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: #f5f5f5;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      outline: 2px solid #f39c12;
+      background-color: #333;
+      color: #eee;
+    }
+    button {
+      background-color: #f39c12;
+      color: #222;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 12px rgba(243,156,18,0.6);
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #d35400;
+      color: #fff;
+      box-shadow: 0 8px 15px rgba(211,84,0,0.7);
+    }
+    #whatsapp {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+    }
+    #whatsapp a {
+      background-color: #25d366;
+      color: white;
+      padding: 0.7rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 700;
+      box-shadow: 0 4px 8px rgba(37,211,102,0.7);
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+    #whatsapp a:hover {
+      background-color: #128c4a;
+      color: #e6e6e6;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111;
+      color: #999;
+      text-align: center;
+      padding: 1.2rem 1rem;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 1.5rem;
+      }
+      #home h2 {
+        font-size: 2.2rem;
+      }
+      #shop {
+        padding: 3rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hamdan Fragrances</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" role="banner">
+    <h2>Experience the Essence of Luxury</h2>
+    <p>At Hamdan Fragrances, we bring you the finest, most captivating scents that define your personality and style.</p>
+    <a href="#shop" class="btn" aria-label="Shop Now">Shop Now</a>
+  </section>
+
+  <section id="shop" role="region" aria-labelledby="shop-heading">
+    <h2 id="shop-heading">Our Exclusive Collection</h2>
+    <div class="products-grid">
+      <article class="product-card" aria-label="Sauvage fragrance">
+        <img class="product-image" src="https://images.unsplash.com/photo-1600181952032-78fb2a3083f3?auto=format&fit=crop&w=600&q=80" alt="Sauvage perfume bottle" />
+        <div class="product-info">
+          <h3>Sauvage</h3>
+          <p>A bold, masculine scent with spicy freshness and rugged charm – perfect for confident personalities.</p>
+        </div>
+      </article>
+
+      <article class="product-card" aria-label="Bombshell fragrance">
+        <img class="product-image" src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=600&q=80" alt="Bombshell perfume bottle" />
+        <div class="product-info">
+          <h3>Bombshell</h3>
+          <p>A glamorous, floral-fruity fragrance for women who love to stand out – vibrant, sweet, and unforgettable.</p>
+        </div>
+      </article>
+
+      <article class="product-card" aria-label="Cool Water fragrance">
+        <img class="product-image" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Cool Water perfume bottle" />
+        <div class="product-info">
+          <h3>Cool Water</h3>
+          <p>Fresh aquatic breeze blended with mint and lavender – a timeless classic for everyday cool confidence.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" role="contentinfo">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST" aria-label="Contact form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="your.email@example.com" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div id="whatsapp">
+      <p>Or contact us directly on WhatsApp:</p>
+      <a href="https://wa.me/923272074954" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">Chat Now</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Hamdan Fragrances. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
